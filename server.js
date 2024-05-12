@@ -39,7 +39,7 @@ async function connectToDatabase() {
 // Verileri getiren API endpoint'i
 app.get('/api/data', async (req, res) => {
   try {
-    const result = await mssql.query`SELECT * FROM Yacht_Datas order by ID`;
+    const result = await mssql.query`SELECT * FROM Alesta_Yacht_Datas order by ID`;
     res.json(result.recordset);
   
   } catch (err) {
@@ -52,7 +52,7 @@ app.get('/api/data', async (req, res) => {
   app.get('/api/data/:id', async (req, res) => {
     const id = req.params.id;
     try {
-      const result = await mssql.query`SELECT * FROM Yacht_Datas where ID=${id} order by ID`;
+      const result = await mssql.query`SELECT * FROM Alesta_Yacht_Datas where ID=${id} order by ID`;
       res.json(result.recordset);
     
     } catch (err) {
